@@ -1,10 +1,10 @@
-%define gitshort  7e443e4
-%define build_ver 9
+%define gitshort  a4cd434
+%define build_ver 14
 %define branch dev
 %define app_pkg com.github.tkashkin.gamehub
 
 Name: gamehub
-Version:	0.11.6
+Version:	0.12.0
 Release:	1.%{build_ver}.%{gitshort}%{?dist}
 Summary:	Games manager/downloader/library written in Vala
 
@@ -19,6 +19,7 @@ BuildRequires:	pkgconfig(granite)
 BuildRequires:	pkgconfig(webkit2gtk-4.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(sqlite3)
+BuildRequires:  pkgconfig(polkit-gobject-1)
 
 BuildRequires: libappstream-glib
 BuildRequires: desktop-file-utils
@@ -27,9 +28,6 @@ Recommends: innoextract
 Recommends: dosbox
 Recommends: wine
 Recommends: file-roller
-
-Suggests: steam
-
 
 %description
 GameHub allows to view, download, install, run and uninstall games from
@@ -61,6 +59,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{app_pkg}.desktop
 %{_datadir}/glib-2.0/schemas/%{app_pkg}.gschema.xml
 %{_datadir}/icons/hicolor/scalable/apps/%{app_pkg}.svg
 %{_datadir}/metainfo/%{app_pkg}.appdata.xml
+%{_datadir}/polkit-1/actions/com.github.tkashkin.gamehub.policy
 
 
 
